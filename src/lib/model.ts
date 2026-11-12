@@ -11,6 +11,9 @@ export type Camera = {
   kind: Kind
   position: string
   coverageStatus?: CoverageState
+  latitude?: number | null
+  longitude?: number | null
+  underpassName?: string | null
 }
 export type Media = { id: string; fileName: string; kind: Kind; capturedAt: string }
 export type Review = {

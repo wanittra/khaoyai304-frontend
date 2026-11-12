@@ -349,7 +349,10 @@ export function ReportSummary({ readOnly }: { readOnly: boolean }) {
       id: camera.code,
       siteId,
       kind: /video/i.test(camera.cameraType ?? '') || /-V\d+$/i.test(camera.code) ? 'video' : 'image',
-      position: camera.underpassName || 'ทางลอด ' + siteId,
+      position: camera.name && camera.name !== camera.code ? camera.name : (camera.underpassName || 'ทางลอด ' + siteId),
+      latitude: camera.latitude,
+      longitude: camera.longitude,
+      underpassName: camera.underpassName,
     }] : []
   })
   const siteIds = [...new Set(mapCameras.map((camera) => camera.siteId))]
@@ -396,7 +399,6 @@ export function ReportSummary({ readOnly }: { readOnly: boolean }) {
             cameraId={cameraCode}
             onChange={selectSite}
             onCamera={setCameraCode}
-            showSiteFilter={false}
             reviewedCameraIds={reviewedCameraIds}
           />
         ) : <p>ไม่พบกล้องที่ระบุทางลอดได้</p>}</Result>
