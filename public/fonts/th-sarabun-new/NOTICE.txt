@@ -1,0 +1,4 @@
+TH Sarabun New by Supakit Chalermlarp and SIPA.
+Distributed under the GNU GPL version 2 or later with the font embedding
+exception described in the font metadata.
+Source: https://www.f0nt.com/release/th-sarabun-new/

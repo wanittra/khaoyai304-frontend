@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title">
+<title id="title">ภาพจำลองจากกล้อง C-P1 แสดงทางเดินว่าง</title>
+<rect width="640" height="360" fill="#263a33"/>
+<path d="M0 190 90 140 175 174 276 108 354 154 458 114 640 168V360H0Z" fill="#486158"/>
+<path d="M238 360 295 180 343 180 468 360Z" fill="#a09a80"/>
+<text x="28" y="48" fill="#fff" font-family="sans-serif" font-size="20">C-P1 / SIMULATED EMPTY FRAME</text>
+<text x="28" y="76" fill="#fff" font-family="sans-serif" font-size="16">2026-11-03 19:30 ICT</text>
+</svg>

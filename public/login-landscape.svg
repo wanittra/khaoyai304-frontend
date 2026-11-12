@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 760">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="#255b49"/>
+      <stop offset="1" stop-color="#8aa57b"/>
+    </linearGradient>
+    <pattern id="trees" width="42" height="51" patternUnits="userSpaceOnUse">
+      <path d="M13 4 2 26h7L0 39h12v7h3v-7h12l-9-13h6Zm22 14-7 14h4l-7 9h9v7h3v-7h8l-7-9h5Z" fill="#a9c19b" opacity=".21"/>
+    </pattern>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h640v760H0z"/>
+  <circle cx="455" cy="163" r="74" fill="#e7dda5" opacity=".9"/>
+  <g fill="none" stroke="#d3e4b8" stroke-width="1" opacity=".24">
+    <path d="M-14 120C140 44 262 133 387 89S563 42 674 95"/>
+    <path d="M-14 148C140 72 262 161 387 117S563 70 674 123"/>
+    <path d="M-14 176C140 100 262 189 387 145S563 98 674 151"/>
+    <path d="M-14 204C140 128 262 217 387 173S563 126 674 179"/>
+  </g>
+  <path fill="#678769" d="m0 295 79-55 78 21 67-46 88 59 53-16 112-77 85 48 78-10v541H0z"/>
+  <path fill="#466f59" d="m0 323 96-36 65 30 75-43 108 66 103-34 88-55 105 41v468H0z"/>
+  <path fill="#2d5847" d="m0 401 114-69 98 47 94-23 76 20 92-56 166 48v392H0z"/>
+  <path fill="url(#trees)" d="m0 401 114-69 98 47 94-23 76 20 92-56 166 48v392H0z"/>
+  <path fill="#264a3d" d="m0 459 155-44 101 27 84-24 107 19 193-51v374H0z"/>
+  <path d="M-35 463c98-2 144-55 229-39 83 16 126 43 211 19 91-25 156-90 268-67" fill="none" stroke="#83a781" stroke-width="42"/>
+  <path d="M-35 463c98-2 144-55 229-39 83 16 126 43 211 19 91-25 156-90 268-67" fill="none" stroke="#263d35" stroke-width="27"/>
+  <path d="M-35 463c98-2 144-55 229-39 83 16 126 43 211 19 91-25 156-90 268-67" fill="none" stroke="#d8d291" stroke-width="2" stroke-dasharray="11 10"/>
+  <g fill="#dae7a8" stroke="#234b3c" stroke-width="4">
+    <circle cx="119" cy="428" r="8"/>
+    <circle cx="308" cy="448" r="8"/>
+    <circle cx="510" cy="399" r="8"/>
+  </g>
+</svg>

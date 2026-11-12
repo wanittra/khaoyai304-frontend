@@ -1,0 +1,233 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "A-P1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.88308,
+          14.32709
+        ]
+      },
+      "properties": {
+        "cameraCode": "A-P1",
+        "crossingCode": "A",
+        "mediaType": "photo",
+        "side": 1,
+        "locationName": "แนวทางเดินฝั่ง 1",
+        "simulated": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "A-V1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.8834,
+          14.32686
+        ]
+      },
+      "properties": {
+        "cameraCode": "A-V1",
+        "crossingCode": "A",
+        "mediaType": "video",
+        "side": 1,
+        "locationName": "ปากทางลอดฝั่ง 1",
+        "simulated": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "A-V2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.8838,
+          14.32674
+        ]
+      },
+      "properties": {
+        "cameraCode": "A-V2",
+        "crossingCode": "A",
+        "mediaType": "video",
+        "side": 2,
+        "locationName": "ปากทางลอดฝั่ง 2",
+        "simulated": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "A-P2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.88412,
+          14.32651
+        ]
+      },
+      "properties": {
+        "cameraCode": "A-P2",
+        "crossingCode": "A",
+        "mediaType": "photo",
+        "side": 2,
+        "locationName": "แนวทางเดินฝั่ง 2",
+        "simulated": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B-P1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.88558,
+          14.33049
+        ]
+      },
+      "properties": {
+        "cameraCode": "B-P1",
+        "crossingCode": "B",
+        "mediaType": "photo",
+        "side": 1,
+        "locationName": "แนวทางเดินฝั่ง 1",
+        "simulated": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B-V1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.8859,
+          14.33026
+        ]
+      },
+      "properties": {
+        "cameraCode": "B-V1",
+        "crossingCode": "B",
+        "mediaType": "video",
+        "side": 1,
+        "locationName": "ปากทางลอดฝั่ง 1",
+        "simulated": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B-V2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.8863,
+          14.33014
+        ]
+      },
+      "properties": {
+        "cameraCode": "B-V2",
+        "crossingCode": "B",
+        "mediaType": "video",
+        "side": 2,
+        "locationName": "ปากทางลอดฝั่ง 2",
+        "simulated": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B-P2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.88662,
+          14.32991
+        ]
+      },
+      "properties": {
+        "cameraCode": "B-P2",
+        "crossingCode": "B",
+        "mediaType": "photo",
+        "side": 2,
+        "locationName": "แนวทางเดินฝั่ง 2",
+        "simulated": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C-P1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.88828,
+          14.33339
+        ]
+      },
+      "properties": {
+        "cameraCode": "C-P1",
+        "crossingCode": "C",
+        "mediaType": "photo",
+        "side": 1,
+        "locationName": "แนวทางเดินฝั่ง 1",
+        "simulated": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C-V1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.8886,
+          14.33316
+        ]
+      },
+      "properties": {
+        "cameraCode": "C-V1",
+        "crossingCode": "C",
+        "mediaType": "video",
+        "side": 1,
+        "locationName": "ปากทางลอดฝั่ง 1",
+        "simulated": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C-V2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.889,
+          14.33304
+        ]
+      },
+      "properties": {
+        "cameraCode": "C-V2",
+        "crossingCode": "C",
+        "mediaType": "video",
+        "side": 2,
+        "locationName": "ปากทางลอดฝั่ง 2",
+        "simulated": true
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C-P2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.88932,
+          14.33281
+        ]
+      },
+      "properties": {
+        "cameraCode": "C-P2",
+        "crossingCode": "C",
+        "mediaType": "photo",
+        "side": 2,
+        "locationName": "แนวทางเดินฝั่ง 2",
+        "simulated": true
+      }
+    }
+  ]
+}
