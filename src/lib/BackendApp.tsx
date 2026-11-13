@@ -1,7 +1,6 @@
 import { RoadRequests } from '../features/reports/RoadRequests'
 import { useEffect, useState } from 'react'
 import { Login } from '../features/auth/Login'
-import { CameraCoveragePage } from '../features/uploads/CameraCoveragePage'
 import { PhotoUpload } from '../features/uploads/PhotoUpload'
 import { EventDetails, EventList, ReportSummary } from '../features/review/BackendEvents'
 import { ApiError, backend, sessionExpired, type BackendRole, type User } from './backend-api'
@@ -16,14 +15,13 @@ const labels: Record<BackendRole, string> = {
   admin: 'ผู้ดูแลระบบ',
 }
 const uploadLink: WorkspaceLink = { route: '/upload', title: 'อัปโหลดหลักฐาน', icon: 'upload' }
-const coverageLink: WorkspaceLink = { route: '/coverage', title: 'บันทึกสถานะกล้อง', icon: 'camera' }
 const reportLink: WorkspaceLink = { route: '/reports', title: 'แผนที่และรายงาน', icon: 'report' }
 const eventLinks: WorkspaceLink[] = [
   { route: '/events', title: 'เหตุการณ์ทั้งหมด', icon: 'list' },
   reportLink,
 ]
 const linksByRole: Record<BackendRole, WorkspaceLink[]> = {
-  field_team: [uploadLink, coverageLink],
+  field_team: [uploadLink],
   reviewer: eventLinks,
   researcher: [...eventLinks, { route: '/road-requests', title: 'คำขอจากทางหลวง', icon: 'list' }],
   road: [reportLink, { route: '/road-requests', title: 'ขอข้อมูลสำรวจ', icon: 'list' }],
@@ -104,7 +102,6 @@ export function BackendApp() {
       {error && <p role="alert" className="error">{error}</p>}
       {!allowed ? <p role="alert" className="error">บัญชีนี้ไม่มีสิทธิ์เปิดหน้านี้</p>
         : current === '/upload' ? <PhotoUpload key={user.id} userId={user.id} />
-        : current === '/coverage' ? <CameraCoveragePage key={user.id} />
         : current === '/reports' ? <ReportSummary readOnly={isRoad} />
         : current === '/road-requests' ? <RoadRequests key={user.id} isRoad={isRoad} />
         : current === '/events' ? <EventList />

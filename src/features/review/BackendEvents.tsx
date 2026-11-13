@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { ApiError, backend, type Camera, type CameraEvent, type EventMedia, type Review, type ReviewStatus } from '../../lib/backend-api'
-import { coverageLabels, outcomes, sites, thaiDate, type Camera as MapCamera } from '../../lib/model'
+import { outcomes, sites, thaiDate, type Camera as MapCamera } from '../../lib/model'
 import { CrossingMap } from '../map/CrossingMap'
 import { Badge, Header, message, Result, ScrollTable, useLoad } from '../../lib/ui'
 
@@ -56,20 +56,10 @@ function EventTable({ items }: { items: CameraEvent[] }) {
   return (
     <ScrollTable label="รายการเหตุการณ์">
       <table>
-        <thead><tr><th>กล้อง</th><th>เวลาเริ่ม (ไทย)</th><th>สถานะกล้อง</th><th>สื่อ</th><th>สถานะ</th><th>ชนิดสัตว์</th><th>รายละเอียด</th></tr></thead>
+        <thead><tr><th>กล้อง</th><th>เวลาเริ่ม (ไทย)</th><th>สื่อ</th><th>สถานะ</th><th>ชนิดสัตว์</th><th>รายละเอียด</th></tr></thead>
         <tbody>{items.map((item) => (
           <tr key={item.id}>
-            <td>{item.cameraCode}</td><td>{thaiDate(item.startTime)}</td>
-            <td>
-              {item.cameraStatus ? (
-                <Badge tone={item.cameraStatus === 'active' ? 'green' : item.cameraStatus === 'offline' ? 'red' : 'neutral'}>
-                  {coverageLabels[item.cameraStatus] ?? item.cameraStatus}
-                </Badge>
-              ) : (
-                <span style={{ color: 'var(--muted)' }}>—</span>
-              )}
-            </td>
-            <td>{item.mediaCount}</td>
+            <td>{item.cameraCode}</td><td>{thaiDate(item.startTime)}</td><td>{item.mediaCount}</td>
             <td>{item.outcome === 'uncertain' ? outcomes.uncertain : statusLabels[item.reviewStatus]}</td><td>{item.speciesName || '—'}</td>
             <td><a href={'#/events/' + encodeURIComponent(item.id)}>เปิดเหตุการณ์</a></td>
           </tr>
@@ -145,21 +135,8 @@ export function EventDetails({ id, canReview, backTo }: { id: string; canReview:
       <Result result={result}>{(event) => (
         <div className={canReview ? undefined : 'event-detail-columns'}>
           <section className="panel">
-            <h2>
-              {event.cameraCode}
-              {event.cameraStatus && (
-                <>
-                  {' '}
-                  <Badge tone={event.cameraStatus === 'active' ? 'green' : event.cameraStatus === 'offline' ? 'red' : 'neutral'}>
-                    {coverageLabels[event.cameraStatus] ?? event.cameraStatus}
-                  </Badge>
-                </>
-              )}
-            </h2>
+            <h2>{event.cameraCode}</h2>
             <p>{thaiDate(event.startTime)} – {thaiDate(event.endTime)} · {event.mediaCount} ไฟล์</p>
-            {event.cameraCoverageNote && (
-              <p><small style={{ color: 'var(--muted)' }}>สถานะกล้องจากภาคสนาม: {event.cameraCoverageNote}</small></p>
-            )}
             {canReview && <EventEvidence items={event.media} compact />}
             <EventReview event={event} canReview={canReview} />
           </section>
