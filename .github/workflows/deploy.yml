@@ -1,0 +1,53 @@
+name: Deploy Frontend to Azure VM
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout latest code
+        uses: actions/checkout@v4
+
+      - name: 2. Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: 3. Install dependencies and build production bundle
+        env:
+          VITE_API_BASE_URL: /api
+        run: |
+          npm ci
+          npm run build
+          tar -czf dist.tar.gz -C dist .
+
+      - name: 4. Upload and deploy to Azure VM via SSH
+        env:
+          VM_HOST: ${{ secrets.AZURE_VM_HOST }}
+          VM_USER: ${{ secrets.AZURE_VM_USERNAME }}
+          VM_SSH_KEY: ${{ secrets.AZURE_VM_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$VM_SSH_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -H "$VM_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+          scp -i ~/.ssh/id_deploy -o StrictHostKeyChecking=no dist.tar.gz "$VM_USER@$VM_HOST:/tmp/frontend-dist.tar.gz"
+
+          ssh -i ~/.ssh/id_deploy -o StrictHostKeyChecking=no "$VM_USER@$VM_HOST" '
+            set -e
+            CADDY_ROOT="$(awk "/^[[:space:]]*root[[:space:]]+\*/ {print \$3; exit}" /etc/caddy/Caddyfile 2>/dev/null || true)"
+            TARGET_DIR="${CADDY_ROOT:-/var/www/khaoyai304}"
+            sudo mkdir -p "$TARGET_DIR"
+            sudo tar -xzf /tmp/frontend-dist.tar.gz -C "$TARGET_DIR"
+            rm -f /tmp/frontend-dist.tar.gz
+            sudo systemctl reload caddy 2>/dev/null || true
+            echo "Deployed frontend to $TARGET_DIR successfully!"
+          '
