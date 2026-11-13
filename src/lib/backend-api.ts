@@ -143,6 +143,8 @@ export type CameraEvent = Review & {
   startTime: string
   endTime: string
   mediaCount: number
+  cameraStatus?: CoverageState | null
+  cameraCoverageNote?: string | null
 }
 export type EventMedia = { id: string; fileName: string; capturedAt: string }
 type ReportRow = {
