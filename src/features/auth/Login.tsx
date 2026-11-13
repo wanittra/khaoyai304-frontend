@@ -50,11 +50,11 @@ export function Login({
         <aside className="login-landscape" aria-label="โครงการเขาใหญ่ 304">
           <div className="login-brand">
             <span className="login-brand-mark" aria-hidden="true">304</span>
-            <div><strong>เขาใหญ่ 304</strong><small>โครงการติดตามทางลอด</small></div>
+            <div><strong>เขาใหญ่ 304</strong><small>โครงการติดตามทางลอดสัตว์ป่า</small></div>
           </div>
           <div className="login-story">
             <p>เขาใหญ่–ทับลาน · ทางหลวงหมายเลข 304</p>
-            <h2>ลอดช่องทางลอดสัตว์ป่า<br />เขาใหญ่–ทับลาน</h2>
+            <h2>ลอดช่องสัตว์ป่า<br />เขาใหญ่–ทับลาน</h2>
             <div className="login-crossings" aria-label="ทางลอด A, B และ C">
               <span>A</span><span>B</span><span>C</span>
             </div>
