@@ -1,8 +1,22 @@
 import { useState, type FormEvent } from 'react'
-import { ApiError, backend, type CameraEvent, type EventMedia, type Review, type ReviewStatus } from '../../lib/backend-api'
+import { ApiError, backend, type Camera, type CameraEvent, type EventMedia, type Review, type ReviewStatus } from '../../lib/backend-api'
 import { coverageLabels, outcomes, sites, thaiDate, type Camera as MapCamera } from '../../lib/model'
 import { CrossingMap } from '../map/CrossingMap'
 import { Badge, Header, message, Result, ScrollTable, useLoad } from '../../lib/ui'
+
+function cameraOptionLabel(item: Camera) {
+  const name = item.name?.trim() || ''
+  const underpass = item.underpassCode?.trim() || ''
+  const code = item.code?.trim() || ''
+
+  const baseName = name && underpass && !name.includes(underpass)
+    ? `${name} ${underpass}`
+    : (name || code)
+
+  return code && code !== baseName && !baseName.includes(code)
+    ? `${baseName} (${code})`
+    : baseName
+}
 
 const statusLabels: Record<ReviewStatus, string> = {
   pending: 'รอตรวจ / ยังไม่แน่ใจ',
@@ -91,7 +105,11 @@ export function EventList() {
           <label>กล้อง
             <select value={cameraId} onChange={(event) => setCameraId(event.target.value)}>
               <option value="">ทุกกล้อง</option>
-              {items.map((item) => <option key={item.id} value={item.id}>{item.name || item.code}</option>)}
+              {items.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {cameraOptionLabel(item)}
+                </option>
+              ))}
             </select>
           </label>
         )}</Result>
